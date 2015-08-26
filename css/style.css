@@ -1,0 +1,217 @@
+.form {
+    position: relative;
+    margin: 6px;
+}
+.form .gr-form {
+    display: block;
+    position: absolute;
+    left: 0px;
+    background: #fff;
+    visibility: hidden;
+    width: 100%;
+    overflow: auto;
+    border-right: 1px solid #009688;
+    border-left: 1px solid #009688;
+}
+.form .gr-form:target {
+    visibility: visible;
+}
+.form .form-input {
+    display: block;
+    width: 100%;
+    padding: 6px;
+    border: none;
+    border-bottom: 1px solid #009688;
+    color: #009688;
+}
+::-moz-placeholder {
+    color: #888;
+}
+.form .form-footer {
+    display: block;
+    width: 100%;
+}
+.form .form-body {
+    display: block;
+    padding: 6px 10px;
+    height: 380px;
+}
+.clear-fix {
+    display: table !important;
+    clear: both !important;
+}
+.form .node {
+    background: #009688;
+    border: #009688;
+    padding: 6px 10px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+}
+.form .node:hover {
+    background: #004d40;
+}
+.form .pn {
+    display: block;
+    position: relative;
+    background: #009688;
+    padding: 6px;
+    top: 10px;
+    border-top: 1px solid #009688;
+    border-bottom: 1px solid #009688;
+}
+.search-content {
+    width: 100%;
+    display: block;
+}
+.popup-register {
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 99;
+    padding: 100px;
+    color: #fff;
+    display: none;
+}
+.popup-register label a {
+    color: #fbae17;
+}
+.tab-parent {
+    position: relative;
+}
+.tab-parent .tab-group {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    visibility: hidden;
+    width: 100%;
+    display: block;
+}
+.tab-parent .tab-group:target {
+    visibility: visible;
+}
+.tab-active {
+    visibility: visible !important;
+}
+.btn-fb, .btn-g {
+    padding: 5px 10px;
+    text-decoration: none;
+    width: 45%;
+    color: #fff;
+    display: inline-block;
+    text-align: left;
+    border-radius: 40px;
+}
+.btn-fb i, .btn-g i {
+    border-right: 1px solid #fff;
+    padding: 0px 5px 0px 0px;
+}
+.btn-fb {
+    background: #414fa1;
+    border: 1px solid #414fa1;
+}
+.btn-g {
+    background: #faa722;
+    border: 1px solid #faa722;
+}
+.btn-fb:hover, .btn-g:hover {
+    text-decoration: none;
+    color: #fff;
+}
+.ip-reg {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 2px solid #fbae17;
+    outline: none;
+    background: transparent;
+    font-size: 18px;
+    color: #fff;
+}
+.ip-reg::-moz-placeholder {
+    color: #fff;
+}
+.btn-reg {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 2px solid #fbae17;
+    outline: none;
+    background: transparent;
+    font-size: 18px;
+    color: #fff;
+    transition: background 300ms ease-out;
+    -moz-transition: background 300ms ease-out;
+    cursor: pointer;
+}
+.btn-reg:hover {
+    text-decoration: none;
+    background: #fbae17;
+    color: #fff;
+}
+.break {
+    list-style: none;
+    display: block;
+    padding: 0px !important;
+}
+.break li {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    border: 2px solid #fbae17;
+    border-radius: 50%;
+    color: #fff;
+}
+.break li.act {
+    background: #fbae17;
+    width: 25px;
+    height: 1px;
+    border-radius: 0px;
+    margin: -6px;
+    position: relative;
+    top: -10px;
+}
+.break li.ac {
+    background: #fbae17;
+}
+#btn-close {
+    position: fixed;
+    top: 35px;
+    right: 35px;
+    font-size: 24px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.15);
+    transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    padding: 15px;
+    cursor: pointer;
+}
+#btn-close:before, #btn-close:after {
+    content: "";
+    display: inline-block;
+    height: 2px;
+    width: 30px;
+    background: #fff;
+    right: 0px;
+    top: 15px;
+    position: absolute;
+}
+#btn-close:before {
+    transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+}
+#btn-close:after {
+    transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+}
+#btn-close:hover{
+    transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+}
+.website {
+    word-wrap: break-word;
+}
