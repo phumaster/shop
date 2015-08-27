@@ -2,6 +2,7 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <form action="" method="post">
+            <?php if(isset($error_msg)) echo $error_msg;?>
             <div class="form-group">
                 <label>Tiêu đề</label>
                 <input type="text" name="name" class="form-control"/>
