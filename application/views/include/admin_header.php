@@ -85,6 +85,9 @@
                         <li>
                             <a href="<?php echo site_url('admin/C_list_web'); ?>"><i class="fa fa-fw fa-list"></i> Danh sách trang web</a>
                         </li>
+                        <li>
+                            <a href="<?php echo site_url('admin/C_list_category'); ?>"><i class="fa fa-fw fa-list-alt"></i> Danh mục chính</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

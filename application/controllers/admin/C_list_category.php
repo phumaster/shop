@@ -8,6 +8,12 @@ class C_list_category extends MY_Controller {
     
     public function index() {
         $data['data'] = $this->M_category->getAll();
-        $this->load->view('admin/V_list_category');
+        $data['title'] = 'Thư mục';
+        $this->load->view('admin/V_list_category', $data);
+    }
+    
+    public function add() {
+        $data['title'] = 'Thêm thư mục mới';
+        $this->load->view('admin/V_add_category', $data);
     }
 }
