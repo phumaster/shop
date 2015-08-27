@@ -1,0 +1,30 @@
+[33mcommit 662249955e887d6579a2e4b12457818812532eda[m
+Merge: 9902705 ea5ddef
+Author: = <=>
+Date:   Wed Aug 26 21:10:22 2015 +0700
+
+    Merge branch 'master' of github.com:phumaster/shop
+
+[33mcommit 99027058587fcb7fffc60332771a087d215159a9[m
+Author: = <=>
+Date:   Wed Aug 26 21:01:14 2015 +0700
+
+    upload code shop
+
+[33mcommit ea5ddef32343a8683ff26d4e12d526daf8e4d568[m
+Author: phumaster <nhoc95gait@gmail.com>
+Date:   Wed Aug 26 20:56:00 2015 +0700
+
+    delete tt.txt
+
+[33mcommit 78ce727a11503278380999c3643da590895e9889[m
+Author: = <=>
+Date:   Fri Aug 21 16:36:06 2015 +0700
+
+    cap nhat file tt.txt
+
+[33mcommit c72a791b53092728a2bdecd581362b04b3ba26d0[m
+Author: = <=>
+Date:   Fri Aug 21 16:08:15 2015 +0700
+
+    lan cap nhat dau tien
