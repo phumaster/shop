@@ -27,4 +27,8 @@ class M_category extends CI_Model {
         return $this->db->count_all_results($this->table);
     }
 
+    public function getAll() {
+        $this->db->select('*')->from($this->table);
+        return $this->db->get()->result_array();
+    }
 }
