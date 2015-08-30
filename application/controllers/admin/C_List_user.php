@@ -74,7 +74,7 @@ class C_List_user extends MY_Controller {
         }
         // load view
         if ($query->count()) {
-            $this->load->view('admin/V_edituser', $data);
+            $this->load->view('admin/V_edit_user', $data);
         } else {
             redirect('admin/C_list_user');
         }
@@ -84,7 +84,7 @@ class C_List_user extends MY_Controller {
         $query = $this->M_admin->getUser($id);
         if ($query->count()) {
             $this->M_admin->delete($id);
-            $web = $this->M_website->selectByUserid($id);
+            $web = $this->M_website->getByUserId($id);
             if (count($web) > 0) {
                 $this->M_website->delByUserid($id);
                 $director = './Working/users/'.$id.'-'.$web['subdomain'];

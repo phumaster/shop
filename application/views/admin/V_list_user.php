@@ -1,7 +1,7 @@
 <?php $this->load->view('include/admin_header'); ?>
 <div class="row">
     <div class="col-md-12">
-        <h2 class="page-header"><i class="fa fa-users"></i> Danh sách người dùng</h2>
+        <h4 class="page-header"><i class="fa fa-users"></i> Danh sách người dùng</h4>
         <div id="notify" style="display: none;"></div>
         <?php if ($this->session->flashdata('success_message')): ?>
             <div class="alert alert-success"><?php echo $this->session->flashdata('success_message') ?></div>

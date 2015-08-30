@@ -1,7 +1,7 @@
 <?php $this->load->view('include/admin_header');?>
 <div class="row">
     <div class="col-md-12">
-        <h2 class="page-header"><i class="fa fa-user"></i> Chỉnh sửa thông tin <i><?php echo $username; ?></i></h2>
+        <h4 class="page-header"><i class="fa fa-user"></i> Chỉnh sửa thông tin <i><?php echo $username; ?></i></h4>
         <?php if (isset($error_message)): ?>
             <div class="alert alert-danger"><?php echo $error_message; ?></div>
         <?php endif; ?>
