@@ -57,8 +57,9 @@
                                     </div>
                                     <div class="form-group">
                                         <select class="ip-reg btn-reg" style="appearance: none;-moz-appearance: none;" name="category">
-                                            <option value="mobile" selected>Điện thoại</option>
-                                            <option value="dacap">Đa cấp</option>
+                                            <?php foreach ($category as $key => $value): ?>
+                                                <option value="<?php echo $value['value']; ?>"><?php echo $value['name']; ?></option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
                                     <div class="form-group">

@@ -58,7 +58,9 @@ class C_list_web extends MY_Controller {
     public function edit($id = '') {
         $id = (int) $id;
         $data['title'] = 'Chỉnh sửa website';
-        if (count($this->M_website->getId($id)) != 0) {
+        $query = $this->M_website->getId($id);
+        if (count($query) != 0) {
+            $data['data'] = $query;
             if ($_POST) {
                 $this->form_validation->set_rules('subdomain', 'Tên miền', 'trim|required|max_length[255]|xss_clean');
                 $this->form_validation->set_message('required', '%s không được để trống.');
@@ -74,7 +76,7 @@ class C_list_web extends MY_Controller {
                 }
             }
             $this->load->view('admin/V_edit_web', $data);
-        }else{
+        } else {
             redirect('admin/C_list_web');
         }
     }

@@ -4,11 +4,12 @@ class C_Register extends MY_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model(array('admin/M_admin', 'M_website', 'admin/M_opencart'));
+        $this->load->model(array('admin/M_admin', 'M_website', 'admin/M_opencart', 'admin/M_category'));
     }
 
     public function index() {
-        $this->load->view('V_Register');
+        $data['category'] = $this->M_category->getAll();
+        $this->load->view('V_Register', $data);
     }
 
     public function Register() {

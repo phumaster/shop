@@ -8,7 +8,7 @@
         <?php endif; ?>
         <form action="" method="post">
             <div class="form-group">
-                <input type="text" name="subdomain" value="" class="form-control"/>
+                <input type="text" name="subdomain" value="<?php echo $data['subdomain']; ?>" class="form-control"/>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-success">Lưu thay đổi</button>
