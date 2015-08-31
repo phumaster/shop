@@ -87,13 +87,23 @@ class C_List_user extends MY_Controller {
             $web = $this->M_website->getByUserId($id);
             if (count($web) > 0) {
                 $this->M_website->delByUserId($id);
-                $director = './Working/users/'.$id.'-'.$web['subdomain'];
+                $director = './Working/users/' . $id . '-' . $web['subdomain'];
                 $this->M_website->delDatabase($web['subdomain']);
                 self::del_dir($director);
             }
-            echo 'Xóa thành công!';
+            if ($this->is_ajax()) {
+                echo 'Xóa thành công!';
+            } else {
+                $this->session->set_flashdata('success_message', 'Xóa thành công!');
+                redirect('admin/C_list_user');
+            }
         } else {
-            redirect('admin/C_list_user');
+            if ($this->is_ajax()) {
+                echo 'User không tồn tại hoặc đã bị xóa.';
+            } else {
+                $this->session->set_flashdata('error_message', 'User không tồn tại hoặc đã bị xóa.');
+                redirect('admin/C_list_user');
+            }
         }
     }
 
@@ -113,7 +123,7 @@ class C_List_user extends MY_Controller {
         }
         redirect('admin/C_list_user');
     }
-    
+
     private static function del_dir($dir) {
         $files = array_diff(scandir($dir), array('.', '..'));
         foreach ($files as $file) {

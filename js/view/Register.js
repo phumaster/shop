@@ -1,6 +1,15 @@
-$(function () {
+$.noConflict();
+jQuery(function ($) {
     var tab1 = $('#tab1');
     var tab2 = $('#tab2');
+    $('.btn-reg-2').attr('disabled','disabled').css({'cursor':'not-allowed'});
+    $('input[name=check]').click(function(){
+        if(this.checked === true){
+            $('.btn-reg-2').removeAttr('disabled').css({'cursor':'pointer'});
+        }else{
+            $('.btn-reg-2').attr('disabled','disabled').css({'cursor':'not-allowed'});
+        }
+    });
     $('.reg-link').click(function () {
         $('.popup-register').fadeIn(500);
     });

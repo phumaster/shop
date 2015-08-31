@@ -66,7 +66,7 @@
                                         <label><input type="checkbox" name="check"/> Tôi đồng ý với <a href="#">quy định sử dụng</a> & <a href="#">chính sách bảo mật</a> của faceweb</label>
                                     </div>
                                     <div class="form-group" style="text-align: center;">
-                                        <button type="submit" class="btn-ok-register btn-reg" name="register">Hoàn tất</button>
+                                        <button type="submit" class="btn-ok-register btn-reg btn-reg-2" name="register">Hoàn tất</button>
                                     </div>
                                     <div class="form-group" style="text-align: center;">
                                         <ul class="break">
