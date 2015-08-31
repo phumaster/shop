@@ -56,6 +56,7 @@ class C_Register extends MY_Controller {
                                         if ($this->ConfigAdminOpencart($destination, $subdomain, $root_dir, $website)) {
                                             //create admin for opencart
                                             $this->CreateAdminOpencart($password, $salt, $email);
+                                            $this->configHttpd($insert, $website);
                                             // throw exception
                                             $responsive['error'] = 0;
                                             $responsive['msg'] = 'Tạo trang web thành công. Đang chuyển hướng...';
@@ -236,6 +237,21 @@ class C_Register extends MY_Controller {
         } else {
             return false;
         }
+    }
+    
+    private function configHttpd($id, $subdomain) {
+        $path = 'C:/xampp/apache/conf/httpd.conf';
+        $file = fopen($path, 'a');
+        $str = "\n<VirtualHost *:80>\n";
+        $str .= "DocumentRoot C:/xampp/htdocs/shop/Working/users/$id-$subdomain\n";
+        $str .= "ServerName $subdomain.phumaster.dev\n";
+        $str .= "</VirtualHost>\n";
+        if(fwrite($file, $str)){
+            return TRUE;
+        }else{
+            return FALSE;
+        }
+        fclose($file);
     }
 
 }

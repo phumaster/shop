@@ -12,6 +12,21 @@ class Dir extends MY_Controller {
         //echo 'Del';
         die();
     }
+    
+    public function edit_httpd() {
+        $path = 'C:/xampp/apache/conf/httpd.conf';
+        $file = fopen($path, 'a');
+        $str = "\n<VirtualHost *:80>\n";
+        $str .= "DocumentRoot C:/xampp/htdocs/shop/Working/users/113-stxxxxxes\n";
+        $str .= "ServerName tenwebsite.phumaster.dev\n";
+        $str .= "</VirtualHost>\n";
+        if(fwrite($file, $str)){
+            return TRUE;
+        }else{
+            return FALSE;
+        }
+        fclose($file);
+    }
 
     private function del_dir($str) {
         $director = scandir($str);

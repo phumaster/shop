@@ -31,7 +31,7 @@ jQuery(function ($) {
         $('.website').html($(this).val());
     });
     $('#form-register').submit(function (e) {
-        $('.btn-ok-register').html('<i class="fa fa-spinner fa-spin"></i> đang tạo trang web, vui lòng chờ...');
+        $('.btn-ok-register').html('<i class="fa fa-spinner fa-spin"></i> đang tạo trang web, vui lòng chờ trong 1 phút...');
         if ($('#website').val() == '') {
             $('.notify2').html('Vui lòng nhập tên website!');
             $('.btn-ok-register').html('Hoàn tất');
