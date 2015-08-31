@@ -86,9 +86,10 @@ class C_List_user extends MY_Controller {
             $this->M_admin->delete($id);
             $web = $this->M_website->getByUserId($id);
             if (count($web) > 0) {
-                $this->M_website->delByUserid($id);
+                $this->M_website->delByUserId($id);
                 $director = './Working/users/'.$id.'-'.$web['subdomain'];
-                rmdir($director); // del folder
+                $this->M_website->delDatabase($web['subdomain']);
+                self::del_dir($director);
             }
             echo 'Xóa thành công!';
         } else {
@@ -111,6 +112,14 @@ class C_List_user extends MY_Controller {
             $this->session->set_flashdata('error_message', 'Bạn chưa chọn mục nào để xóa!');
         }
         redirect('admin/C_list_user');
+    }
+    
+    private static function del_dir($dir) {
+        $files = array_diff(scandir($dir), array('.', '..'));
+        foreach ($files as $file) {
+            (is_dir("$dir/$file")) ? self::del_dir("$dir/$file") : unlink("$dir/$file");
+        }
+        return rmdir($dir);
     }
 
 }

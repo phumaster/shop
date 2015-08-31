@@ -39,6 +39,11 @@ class M_website extends CI_Model {
         $this->db->where('IDuser', $id);
         return $this->db->get()->row_array();
     }
+    
+    public function delByUserId($id = '') {
+        $this->db->where('IDuser', $id);
+        return $this->db->delete($this->table);
+    }
 
     public function getId($id = '') {
         $this->db->select('*')->from($this->table);
@@ -64,6 +69,11 @@ class M_website extends CI_Model {
         $this->db->limit($offset, $row);
         $this->db->order_by($this->table . '.id', 'ASC');
         return $this->db->get()->result_array();
+    }
+    
+    public function delDatabase($name = '') {
+        mysql_query("DROP DATABASE `$name`");
+        return;
     }
 
 }

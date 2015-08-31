@@ -7,11 +7,29 @@ class Dir extends MY_Controller {
     }
 
     public function index() {
-        $director = scandir('./Working/users/80-phamngocphu/opencart-2.0.1-mobile');
-        foreach ($director as $file) {
-            echo $file . '<br/>';
-        }
+        $str = './Working/users/106-xamxam/';
+        self::delTree($str);
+        //echo 'Del';
         die();
+    }
+
+    private function del_dir($str) {
+        $director = scandir($str);
+        foreach ($director as $file) {
+            if (is_dir($str . $file)) {
+                echo array_diff('.', '..');
+            } else {
+                echo $str . $file . '<br/>';
+            }
+        }
+    }
+
+    public static function delTree($dir) {
+        $files = array_diff(scandir($dir), array('.', '..'));
+        foreach ($files as $file) {
+            (is_dir("$dir/$file")) ? self::delTree("$dir/$file") : unlink("$dir/$file");
+        }
+        return rmdir($dir);
     }
 
     public function getLink() {
@@ -40,17 +58,18 @@ class Dir extends MY_Controller {
             }
         }
     }
+
     public function this() {
         echo '<pre>';
         $file = "C:/xampp/apache/conf/httpd.conf";
-        $content = fopen($file,'a+');
-        while(!feof($content)){
+        $content = fopen($file, 'a+');
+        while (!feof($content)) {
             echo fgets($content);
         }
         fclose($content);
     }
-    
-    public function dk (){
+
+    public function dk() {
         //$this->load->view('dk');
     }
 
