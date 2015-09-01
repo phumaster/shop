@@ -52,7 +52,7 @@ jQuery(function ($) {
                     } else {
                         $('.btn-ok-register').html('<i class="fa fa-spinner fa-spin"></i> ' + obj.msg);
                         setTimeout(function () {
-                            window.location = '/shop/index.php/admin/C_list_user';
+                            window.location = obj.redirect;
                         }, 2000);
                     }
                 },

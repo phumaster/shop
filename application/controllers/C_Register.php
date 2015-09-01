@@ -59,6 +59,7 @@ class C_Register extends MY_Controller {
                                             $this->configHttpd($insert, $website);
                                             // throw exception
                                             $responsive['error'] = 0;
+                                            $responsive['redirect'] = $subdomain.'admin';
                                             $responsive['msg'] = 'Tạo trang web thành công. Đang chuyển hướng...';
                                         }
                                     }
