@@ -42,7 +42,7 @@ class C_Register extends MY_Controller {
                         $path = './Working/users';
                         $destination = $path . '/' . $insert . '-' . $website;
                         $root_dir = $_SERVER['DOCUMENT_ROOT'] . '/shop/Working/users/' . $insert . '-' . $website . '/';
-                        $subdomain = 'http://' . $website . '.phumaster.dev/';
+                        $subdomain = 'http://' . $website . '.'.$_SERVER['HTTP_HOST'].'/';
                         /*
                          * insert web info
                          */

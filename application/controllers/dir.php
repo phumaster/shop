@@ -7,10 +7,7 @@ class Dir extends MY_Controller {
     }
 
     public function index() {
-        $str = './Working/users/106-xamxam/';
-        self::delTree($str);
-        //echo 'Del';
-        die();
+        print_r($_SERVER['HTTP_HOST']);
     }
     
     public function edit_httpd() {
