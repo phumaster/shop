@@ -42,7 +42,7 @@ class C_Register extends MY_Controller {
                         $path = './Working/users';
                         $destination = $path . '/' . $insert . '-' . $website;
                         $root_dir = $_SERVER['DOCUMENT_ROOT'] . '/shop/Working/users/' . $insert . '-' . $website . '/';
-                        $subdomain = 'http://' . $website . '.'.$_SERVER['HTTP_HOST'].'/';
+                        $subdomain = 'http://' . $website . '.' . $_SERVER['HTTP_HOST'] . '/';
                         /*
                          * insert web info
                          */
@@ -59,7 +59,7 @@ class C_Register extends MY_Controller {
                                             $this->configHttpd($insert, $website);
                                             // throw exception
                                             $responsive['error'] = 0;
-                                            $responsive['redirect'] = $subdomain.'admin';
+                                            $responsive['redirect'] = $subdomain . 'admin';
                                             $responsive['msg'] = 'Tạo trang web thành công. Đang chuyển hướng...';
                                         }
                                     }
@@ -96,7 +96,7 @@ class C_Register extends MY_Controller {
     private function archive($id, $destination, $category) {
         // create folder website for user
         $zip = new ZipArchive;
-        $file = './SubSystemDefault/Source/opencart-2.0.1-'.$category.'.zip';
+        $file = './SubSystemDefault/Source/opencart-2.0.1-' . $category . '.zip';
         mkdir($destination);
         /*
          * extracting...
@@ -239,17 +239,18 @@ class C_Register extends MY_Controller {
             return false;
         }
     }
-    
+
     private function configHttpd($id, $subdomain) {
         $path = 'C:/xampp/apache/conf/httpd.conf';
+        $server = $_SERVER['HTTP_HOST'];
         $file = fopen($path, 'a');
         $str = "\n<VirtualHost *:80>\n";
         $str .= "DocumentRoot C:/xampp/htdocs/shop/Working/users/$id-$subdomain\n";
-        $str .= "ServerName $subdomain.phumaster.dev\n";
+        $str .= "ServerName $subdomain.$server\n";
         $str .= "</VirtualHost>\n";
-        if(fwrite($file, $str)){
+        if (fwrite($file, $str)) {
             return TRUE;
-        }else{
+        } else {
             return FALSE;
         }
         fclose($file);
