@@ -50,7 +50,7 @@ class C_Register extends MY_Controller {
                             // extracting file
                             if ($this->archive($insert, $destination, $category)) {
                                 //create database
-                                if ($this->CreateDatabase($website)) {
+                                if ($this->CreateDatabase($website, $category)) {
                                     // config opencart
                                     if ($this->ConfigOpencart($destination, $subdomain, $root_dir, $website)) {
                                         if ($this->ConfigAdminOpencart($destination, $subdomain, $root_dir, $website)) {
@@ -128,8 +128,8 @@ class C_Register extends MY_Controller {
         }
     }
 
-    private function CreateDatabase($website) {
-        $file = file('./SubSystemDefault/Database/opencart.sql');
+    private function CreateDatabase($website, $category) {
+        $file = file('./SubSystemDefault/Database/opencart-'.$category.'.sql');
         if ($file) {
             mysql_query("CREATE DATABASE `$website`");
             mysql_query("USE `$website`");
@@ -176,6 +176,7 @@ class C_Register extends MY_Controller {
     private function ConfigOpencart($destination, $subdomain, $root_dir, $database) {
         $fileconfig = $destination . '/config.php';
         $str = file_get_contents($fileconfig);
+        $str .= "<?php\n";
         $str .= "\ndefine('HTTP_SERVER', '" . $subdomain . "');\n";
         $str .= "define('HTTPS_SERVER', '" . $subdomain . "');\n";
 
@@ -208,6 +209,7 @@ class C_Register extends MY_Controller {
     private function ConfigAdminOpencart($destination, $subdomain, $root_dir, $database) {
         $fileconfig = $destination . '/admin/config.php';
         $str = file_get_contents($fileconfig);
+        $str .= "<?php\n";
         $str .= "\ndefine('HTTP_SERVER', '" . $subdomain . "admin/');\n";
         $str .= "define('HTTP_CATALOG', '" . $subdomain . "');\n";
         $str .= "define('HTTPS_SERVER', '" . $subdomain . "admin/');\n";
