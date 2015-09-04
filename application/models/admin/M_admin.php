@@ -43,7 +43,7 @@ class M_admin extends CI_Model {
     }
 
     public function attempt($email, $password) {
-        $this->data = $this->db->query("SELECT * FROM `$this->table` WHERE `email`= '$email' AND `password` = SHA1(CONCAT(salt,SHA1(CONCAT(salt,SHA1($password)))))");
+        $this->data = $this->db->query("SELECT * FROM `$this->table` WHERE `email`= '$email' AND `password` = SHA1(CONCAT(salt,SHA1(CONCAT(salt,SHA1('$password')))))");
         return $this;
     }
 

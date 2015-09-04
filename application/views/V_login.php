@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Register</title>
+        <title><?php echo $title; ?></title>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/bootstrap.css'); ?>"/>
@@ -18,13 +18,18 @@
                             </div>
                             <div class="panel-body">
                                 <div class="col-md-6">
-                                    <a class="btn btn-primary btn-block" href="javascript:;">Đăng nhập bằng Facebook</a>
+                                    <a class="btn btn-primary btn-block" href="<?php echo $login_url;?>">Đăng nhập bằng Facebook</a>
                                 </div>
                                 <div class="col-md-6">
-                                    <form action="" method="post">
+                                    <?php if ($this->session->flashdata('msg')): ?>
+                                        <div class="alert alert-danger">
+                                            <?php echo $this->session->flashdata('msg'); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <form action="C_login/login" method="post">
                                         <div class="form-group">
-                                            <label for="username">Username</label>
-                                            <input type="text" name="username" id="username" class="form-control"/>
+                                            <label for="account">Username</label>
+                                            <input type="text" name="account" id="account" class="form-control" autofocus/>
                                         </div>
                                         <div class="form-group">
                                             <label for="password">Password</label>

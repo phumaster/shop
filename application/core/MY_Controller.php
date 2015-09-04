@@ -15,6 +15,11 @@ class MY_Controller extends CI_Controller {
                 redirect('admin/C_dashboard');
             }
         }
+        if ($this->uri->segment(1) == 'admin') {
+            if ($this->session->userdata('user') && !empty($this->session->userdata('user'))) {
+                redirect('/');
+            }
+        }
     }
 
     public function controller($controller = '') {
