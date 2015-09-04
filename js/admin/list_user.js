@@ -1,16 +1,3 @@
-$(document).ready(function ($) {
-    $('#check_all').click(function () {
-        $('.check_box').attr('checked', this.checked);
-    });
-    $('.check').click(function () {
-        if ($('.check_box').length == $('.check_box:checked').length) {
-            $('#check_all').attr('checked', 'checked');
-        } else {
-            $('#check_all').removeAttr('checked');
-        }
-    });
-});
-//
 $(document).ready(function () {
 
     ////

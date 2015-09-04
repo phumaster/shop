@@ -3,7 +3,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th><input type="checkbox" id="check_all"/></th>
+                <th><input type="checkbox" id="check_all" onclick="$('.check_box').prop('checked', this.checked);"/></th>
                 <th>ID</th>
                 <th>User</th>
                 <th>Email</th>

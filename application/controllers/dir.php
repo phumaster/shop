@@ -7,7 +7,8 @@ class Dir extends MY_Controller {
     }
 
     public function index() {
-        print_r($_SERVER['HTTP_HOST']);
+        $query = $this->db->query("SELECT * FROM `tbl_user`");
+        print_r($query->num_rows());
     }
     
     public function edit_httpd() {

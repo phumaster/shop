@@ -22,7 +22,8 @@ class C_Register extends MY_Controller {
             $category = $this->input->post('category');
             $user = [
                 'email' => $email,
-                'password' => $password
+                'password' => $password,
+                'salt' => $salt
             ];
             try {
                 // Check hop le cau  email, website

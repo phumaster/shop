@@ -21,7 +21,7 @@ class M_admin extends CI_Model {
 
     public function getLimit($limit, $location, $where) {
         $this->db->select('tbl_user.id, username, email, mobile, address, city, birthday, tbl_user.status, tbl_user.disable, tbl_user.type, avatar, created_at, subdomain')->from($this->table);
-        $this->db->join('tbl_website', 'tbl_user.id = tbl_website.IDuser','left');
+        $this->db->join('tbl_website', 'tbl_user.id = tbl_website.IDuser', 'left');
         $this->db->limit($limit, $location);
         if ($where == 'desc') {
             $this->db->order_by('id', 'desc');
@@ -43,12 +43,7 @@ class M_admin extends CI_Model {
     }
 
     public function attempt($email, $password) {
-        $this->db->select('*')->from($this->table);
-        $this->db->where([
-            'email' => $email,
-            'password' => $password
-        ]);
-        $this->data = $this->db->get();
+        $this->data = $this->db->query("SELECT * FROM `$this->table` WHERE `email`= '$email' AND `password` = SHA1(CONCAT(salt,SHA1(CONCAT(salt,SHA1($password)))))");
         return $this;
     }
 
@@ -91,11 +86,12 @@ class M_admin extends CI_Model {
     public function searchUser($str) {
         $this->db->distinct();
         $this->db->select('tbl_user.id, username, email, mobile, address, city, birthday, tbl_user.status, tbl_user.disable, tbl_user.type, avatar, created_at, subdomain')->from($this->table);
-        $this->db->join('tbl_website', 'tbl_user.id = tbl_website.IDuser','left');
-        $this->db->like('username',$str);
+        $this->db->join('tbl_website', 'tbl_user.id = tbl_website.IDuser', 'left');
+        $this->db->like('username', $str);
         $this->db->or_like('email', $str);
         $this->db->or_like('city', $str);
         $this->db->limit(10);
         return $this->db->get()->result_array();
     }
+
 }

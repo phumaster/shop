@@ -14,7 +14,7 @@ class C_Login extends MY_Controller {
     public function signin() {
         if ($_POST) {
             $email = $this->input->post('email');
-            $password = sha1(md5($this->input->post('password')));
+            $password = $this->input->post('password');
             try {
                 $data = $this->validate($email, $password);
                 if ($data) {
