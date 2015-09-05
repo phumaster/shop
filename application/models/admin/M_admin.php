@@ -1,5 +1,8 @@
 <?php
 
+if (!defined('BASEPATH'))
+    exit('Hacking attempt!');
+
 class M_admin extends CI_Model {
 
     private $table = 'tbl_user';

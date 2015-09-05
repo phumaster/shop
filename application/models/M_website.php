@@ -50,6 +50,12 @@ class M_website extends CI_Model {
         $this->db->where('id', $id);
         return $this->db->get()->row_array();
     }
+    
+    public function getByDomain($domain = '') {
+        $this->db->select('*')->from($this->table);
+        $this->db->where('subdomain', $domain);
+        return $this->db->get()->row_array();
+    }
 
     public function getAll() {
         $this->db->select('*');

@@ -1,5 +1,8 @@
 <?php
 
+if (!defined('BASEPATH'))
+    exit('Hacking attempt!');
+
 class M_category extends CI_Model {
 
     private $table = 'tbl_categorylevel1';
@@ -22,7 +25,7 @@ class M_category extends CI_Model {
         $this->db->where('id', $id);
         return $this->db->update($this->table, $data);
     }
-    
+
     public function countAll() {
         return $this->db->count_all_results($this->table);
     }
@@ -31,9 +34,11 @@ class M_category extends CI_Model {
         $this->db->select('*')->from($this->table);
         return $this->db->get()->result_array();
     }
+
     public function getId($id = '') {
         $this->db->select('*')->from($this->table);
-        $this->db->where('id', (int)$id);
+        $this->db->where('id', (int) $id);
         return $this->db->get()->row_array();
     }
+
 }
