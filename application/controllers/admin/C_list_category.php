@@ -1,4 +1,14 @@
 <?php
+/*
+ * @creater Pham Ngoc Phu
+ * @email phumaster.dev@gmail.com
+ * @controller Admin - List category
+ * @project faceweb.vn
+ * @company picker
+ * @add 10 Hoang Ngoc Phach - Lang Ha - Dong Da - Ha Noi
+ */
+if (!defined('BASEPATH'))
+    exit('Hacking attempt!');
 
 class C_list_category extends MY_Controller {
 

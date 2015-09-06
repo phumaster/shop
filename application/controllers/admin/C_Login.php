@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * @creater Pham Ngoc Phu
+ * @email phumaster.dev@gmail.com
+ * @controller Admin - Login
+ * @project faceweb.vn
+ * @company picker
+ * @add 10 Hoang Ngoc Phach - Lang Ha - Dong Da - Ha Noi
+ */
+if (!defined('BASEPATH'))
+    exit('Hacking attempt!');
+
 class C_Login extends MY_Controller {
 
     public function __construct() {
@@ -52,10 +63,10 @@ class C_Login extends MY_Controller {
             if ($query->count() == 0) {
                 throw new Exception("Tài khoản hoặc mật khẩu không đúng!");
                 return FALSE;
-            } else if($query->get()['type'] != 2){
+            } else if ($query->get()['type'] != 2) {
                 throw new Exception("Bạn không phải admin!");
                 return FALSE;
-            }else{
+            } else {
                 return $query->get();
             }
         }

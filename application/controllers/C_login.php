@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * @creater Pham Ngoc Phu
+ * @email phumaster.dev@gmail.com
+ * @controller Login
+ * @project faceweb.vn
+ * @company picker
+ * @add 10 Hoang Ngoc Phach - Lang Ha - Dong Da - Ha Noi
+ */
 if (!defined('BASEPATH'))
     exit('Hacking attempt!');
 
@@ -15,7 +23,7 @@ class C_login extends MY_Controller {
     public function index() {
         $data['title'] = 'Đăng nhập';
         $data['login_url'] = $this->facebook->getLoginUrl(array(
-            'redirect_uri' => site_url('C_login/facebook'),
+            'redirect_uri' => site_url('C_register/facebook'),
             'scope' => array("email", "public_profile", "user_about_me", "user_birthday", "user_hometown") // permissions here
         ));
         $this->load->view('V_login', $data);
@@ -67,14 +75,15 @@ class C_login extends MY_Controller {
         if ($user) {
             $userArr = $this->facebook->api('/me');
             $query = $this->M_facebook->getById($userArr['id']);
-            if(count($query) == 0){
+            if (count($query) == 0) {
                 // insert data user
-                
-            }else{
+                exit('User does\'t exit! Please insert data.');
+            } else {
                 // user exist
+                exit('User can logged in!');
             }
         } else {
-            redirect('C_login');
+            exit('No session here!');
         }
     }
 
